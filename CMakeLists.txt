@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(TanoEngine VERSION 0.1.0 LANGUAGES C CXX)
+project(TanoEngine VERSION 0.1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -16,4 +16,9 @@ foreach(CONFIG ${CMAKE_CONFIGURATION_TYPES})
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${CONFIG} ${CMAKE_BINARY_DIR}/lib)
 endforeach()
 
+set(TANO_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set(TANO_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+add_subdirectory(deps)
 add_subdirectory(src)
+add_subdirectory(tests)

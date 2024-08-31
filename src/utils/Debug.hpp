@@ -39,6 +39,6 @@ namespace Tano
 #define TANO_DEBUG_BREAK() std::raise(SIGTRAP)
 #endif
 #else
-#define TANO_ASSERT(Expression, Message) ((void) 0)
+#define TANO_ASSERT(Expression, ...) ((void) 0)
 #define TANO_DEBUG_BREAK() ((void) 0)
 #endif

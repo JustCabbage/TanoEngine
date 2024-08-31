@@ -32,6 +32,8 @@ namespace Tano
     void WindowContext::Spawn()
     {
         TANO_ASSERT(m_UpdateCallback, "Invalid update callback");
+
+        m_Window.setVerticalSyncEnabled(true);
         while (m_Window.isOpen())
         {
             this->HandleEvents();

@@ -15,15 +15,21 @@ namespace Tano
 
     public:
         void SetEventCallback(const std::function<void(sf::Event)>& Callback);
-        void HandleEvents();
+        void SetUpdateCallback(const std::function<void(const sf::Time&)>& Callback);
+        void Spawn();
         sf::RenderWindow& GetWindow();
         bool IsOpen() const;
         void Close();
         void Destroy();
 
     private:
+        void HandleEvents();
+
+    private:
         sf::RenderWindow m_Window;
+        sf::Clock m_Clock;
         std::function<void(sf::Event)> m_EventCallback;
+        std::function<void(const sf::Time&)> m_UpdateCallback;
     };
 
     class WindowManager

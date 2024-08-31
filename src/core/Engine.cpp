@@ -20,7 +20,6 @@ namespace Tano
         TANO_LOG_INFO("Engine::Shutdown()");
 
         m_WindowManager.Shutdown();
-
         Tano::Logging::Shutdown();
 
         // Other engine shutdown later

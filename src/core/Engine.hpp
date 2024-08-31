@@ -7,7 +7,6 @@
 
 namespace Tano
 {
-
     class Engine
     {
     public:

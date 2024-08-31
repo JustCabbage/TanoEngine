@@ -24,19 +24,16 @@ namespace Tano
         {
             if (Event.type == sf::Event::Closed)
             {
-                TANO_LOG_INFO("TestGame::Start() Window closed");
                 WindowManager.DestroyWindow("Tano.TestGame.MainWindow");
             }
         });
 
-        while (Window->IsOpen())
+        Window->SetUpdateCallback([&](const sf::Time& DeltaTime)
         {
-            Window->HandleEvents();
-        }
+            // Update Shenanigans
+        });
 
-        WindowManager.DestroyWindow("Tano.TestGame.MainWindow");
-
+        Window->Spawn();
         return EXIT_SUCCESS;
     }
-
 } // namespace Tano

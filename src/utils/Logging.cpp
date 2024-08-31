@@ -16,7 +16,7 @@ namespace Tano
     }
     std::shared_ptr<spdlog::logger>& Logging::GetLogger(const std::string_view LoggerName)
     {
-        TANO_ASSERT(s_Loggers.find(LoggerName.data()) != s_Loggers.end());
+        TANO_ASSERT(s_Loggers.find(LoggerName.data()) != s_Loggers.end(), "Logger doesn't exist. Please use Logging::Create(...) before using it");
         return s_Loggers.at(LoggerName.data());
     }
     void Logging::Shutdown()

@@ -17,11 +17,11 @@ namespace Tano
     public:
         void SetEventCallback(const std::function<void(sf::Event)>& Callback);
         void SetUpdateCallback(const std::function<void(const sf::Time&)>& Callback);
-        void Spawn();
         sf::RenderWindow& GetWindow();
         bool IsOpen() const;
         void Close();
         void Destroy();
+        void Spawn();
 
     private:
         void HandleEvents();

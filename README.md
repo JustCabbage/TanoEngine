@@ -14,6 +14,8 @@ Once you have CMake, you can follow these steps:
 4. Generate the build files: `cmake ..`
 5. Build the project: `cmake --build .`
 
+If you would like to compile the project in Debug mode, use `cmake --build . --config Debug` instead.
+
 By default, Tano's build system should clone all its relevant dependencies for you while CMake generates the build files.
 
 **Please ensure you have the necessary build tools installed for your system. If you are using Windows, you may need to have Visual Studio installed with the C++ workload. For Linux, make sure you have the build-essential package installed.**

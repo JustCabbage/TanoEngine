@@ -24,7 +24,7 @@ namespace Tano
         void RemoveEntity(const EntityDescriptor& Entity);
         void ClearEntities();
 
-    private:
+    protected:
         std::string m_SceneId;
         std::vector<EntityDescriptor> m_Entities;
     };

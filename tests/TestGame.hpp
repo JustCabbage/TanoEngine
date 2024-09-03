@@ -1,6 +1,5 @@
 #pragma once
-#include <Tano/Core.hpp>
-#include <Tano/Utils.hpp>
+#include "TestScene.hpp"
 
 namespace Tano
 {

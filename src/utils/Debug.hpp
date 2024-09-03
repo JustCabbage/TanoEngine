@@ -17,7 +17,12 @@ namespace Tano
         static void HandleAssert(const std::string_view Expression, const std::string_view Message = "", const std::source_location& Location = std::source_location::current());
 
         template <typename Callable>
-        static constexpr void ExecuteIfDebug(Callable&& Callback);
+        static constexpr void ExecuteIfDebug(Callable&& Callback)
+        {
+#ifdef TANO_DEBUG
+            std::forward<Callable>(Callback)();
+#endif
+        }
 
         static void MemoryDump(std::span<const std::byte> Data, const std::source_location& Location = std::source_location::current());
     };

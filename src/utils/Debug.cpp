@@ -18,12 +18,4 @@ namespace Tano
         TANO_DEBUG_BREAK();
         std::terminate();
     }
-
-    template <typename Callable>
-    constexpr void Debug::ExecuteIfDebug(Callable&& Callback)
-    {
-#ifdef TANO_DEBUG
-        std::forward<Callable>(Callback)();
-#endif
-    }
 } // namespace Tano

@@ -1,7 +1,5 @@
 #include "TestGame.hpp"
 
-#include "TestScene.hpp"
-
 namespace Tano
 {
     TestGame::TestGame(const sf::Vector2i& WindowSize, const std::string_view WindowTitle)

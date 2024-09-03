@@ -22,6 +22,18 @@ namespace Tano
         }
         void Update(std::uint32_t DeltaTime) override
         {
+            for (const auto [Index, Entity] : std::views::enumerate(m_Entities))
+            {
+                if (ECS::HasComponent<CollideComponent>(Entity))
+                {
+                    TANO_LOG_INFO("Entity {0} has CollideComponent", Index);
+                }
+
+                if (ECS::HasComponent<TransormComponent>(Entity))
+                {
+                    TANO_LOG_INFO("Entity {0} has TransormComponent", Index);
+                }
+            }
         }
         void Render(sf::RenderWindow& Window) override
         {

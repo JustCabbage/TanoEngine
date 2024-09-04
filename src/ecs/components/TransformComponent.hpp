@@ -3,7 +3,7 @@
 
 namespace Tano
 {
-    struct TransormComponent
+    struct TransformComponent
     {
         sf::Vector2f Position = {0.f, 0.f};
         sf::Vector2f Scale = {1.f, 1.f};

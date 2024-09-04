@@ -8,7 +8,6 @@ namespace Tano
         const sf::Uint32 WindowStyle = sf::Style::Close;
 
         m_Engine.GetWindowManager().CreateWindow("Tano.TestGame.MainWindow", WindowSize, WindowTitle, WindowStyle);
-
         m_Engine.CreateScene<TestScene>("Tano.TestGame.TestScene");
     }
 
@@ -34,7 +33,7 @@ namespace Tano
         Window->SetUpdateCallback([&](const sf::Time& DeltaTime)
         {
             m_Engine.UpdateScene(DeltaTime.asMilliseconds());
-            auto Scene = m_Engine.GetCurrentScene();
+            auto Scene = m_Engine.GetActiveScene();
             if (Scene)
             {
                 Scene->Render(Window->GetWindow());

@@ -4,6 +4,7 @@
 namespace Tano
 {
     constexpr std::size_t MAX_COMPONENTS = 32;
+    constexpr std::size_t MAX_ENTITIES = 256;
     static std::size_t ComponentCount = 0;
 
     using Entity = std::size_t;

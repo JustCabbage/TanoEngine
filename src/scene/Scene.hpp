@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <ecs/Entity.hpp>
+#include <ecs/EntityContainer.hpp>
 #include <utils/Debug.hpp>
 #include <vector>
 
@@ -17,15 +17,16 @@ namespace Tano
         virtual void HandleEvent(const sf::Event& Event) = 0;
         virtual void Update(std::uint32_t DeltaTime) = 0;
         virtual void Render(sf::RenderWindow& Window) = 0;
+        void Shutdown()
+        {
+            m_EntityContainer.ClearEntities();
+        }
 
     public:
         const std::string& GetSceneId() const;
-        void AddEntity(const EntityDescriptor& Entity);
-        void RemoveEntity(const EntityDescriptor& Entity);
-        void ClearEntities();
 
     protected:
         std::string m_SceneId;
-        std::vector<EntityDescriptor> m_Entities;
+        EntityContainer m_EntityContainer;
     };
 } // namespace Tano

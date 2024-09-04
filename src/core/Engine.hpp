@@ -21,6 +21,7 @@ namespace Tano
         template <typename SceneType>
         void CreateScene(const std::string& SceneId)
         {
+            static_assert(std::is_base_of_v<Scene, SceneType>, "SceneType must derive from Scene");
             m_Scenes[SceneId] = std::make_unique<SceneType>(SceneId);
         }
 
@@ -28,7 +29,7 @@ namespace Tano
         {
             if (m_CurrentScene)
             {
-                m_CurrentScene->ClearEntities();
+                m_CurrentScene->Shutdown();
             }
 
             auto it = m_Scenes.find(SceneId);
@@ -46,7 +47,7 @@ namespace Tano
             m_CurrentScene->Update(DeltaTime);
         }
 
-        Scene* GetCurrentScene()
+        Scene* GetActiveScene()
         {
             return m_CurrentScene.get();
         }

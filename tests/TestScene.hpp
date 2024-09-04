@@ -14,8 +14,5 @@ namespace Tano
         void HandleEvent(const sf::Event& Event) override;
         void Update(std::uint32_t DeltaTime) override;
         void Render(sf::RenderWindow& Window) override;
-
-    private:
-        EntityContainer m_EntityContainer;
     };
 } // namespace Tano

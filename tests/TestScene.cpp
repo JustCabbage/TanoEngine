@@ -7,8 +7,8 @@ namespace Tano
         EntityDescriptor SomeEntity = m_EntityContainer.CreateEntity<TransformComponent, CollideComponent>();
         EntityDescriptor AnotherEntity = m_EntityContainer.CreateEntity<TransformComponent>();
 
-        this->AddEntity(SomeEntity);
-        this->AddEntity(AnotherEntity);
+        m_EntityContainer.AddEntity(SomeEntity);
+        m_EntityContainer.AddEntity(AnotherEntity);
     }
 
     void TestScene::HandleEvent(const sf::Event& Event)
@@ -17,16 +17,22 @@ namespace Tano
 
     void TestScene::Update(std::uint32_t DeltaTime)
     {
-        for (const auto [Index, Entity] : std::views::enumerate(m_Entities))
+        for (const auto [Index, Entity] : std::views::enumerate(m_EntityContainer.GetEntities()))
         {
             if (Entity.HasComponent<TransformComponent>())
             {
-                TANO_LOG_INFO("Entity {0} has TransformComponent", Index);
+                auto& TransformContainer = m_EntityContainer.GetComponentContainer<TransformComponent>();
+                auto& Transform = TransformContainer.GetEntityData(Entity.entity);
+
+                // Do something with Transform component
             }
 
             if (Entity.HasComponent<CollideComponent>())
             {
-                TANO_LOG_INFO("Entity {0} has CollideComponent", Index);
+                auto& CollideContainer = m_EntityContainer.GetComponentContainer<CollideComponent>();
+                auto& Collide = CollideContainer.GetEntityData(Entity.entity);
+
+                // Do something with Collide component
             }
         }
     }

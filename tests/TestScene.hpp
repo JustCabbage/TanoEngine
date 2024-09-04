@@ -12,9 +12,7 @@ namespace Tano
     public:
         TestScene(const std::string_view SceneId) : Scene(SceneId)
         {
-            EntityDescriptor SomeEntity = ECS::CreateEntity();
-            ECS::AddComponent<TransormComponent>(SomeEntity);
-            ECS::AddComponent<CollideComponent>(SomeEntity);
+            EntityDescriptor SomeEntity = CreateEntity();
             this->AddEntity(SomeEntity);
         }
         void HandleEvent(const sf::Event& Event) override
@@ -24,14 +22,14 @@ namespace Tano
         {
             for (const auto [Index, Entity] : std::views::enumerate(m_Entities))
             {
-                if (ECS::HasComponent<CollideComponent>(Entity))
+                if (Entity.HasComponent<TransormComponent>())
                 {
-                    TANO_LOG_INFO("Entity {0} has CollideComponent", Index);
+                    TANO_LOG_INFO("Entity {0} has TransformComponent", Index);
                 }
 
-                if (ECS::HasComponent<TransormComponent>(Entity))
+                if (Entity.HasComponent<CollideComponent>())
                 {
-                    TANO_LOG_INFO("Entity {0} has TransormComponent", Index);
+                    TANO_LOG_INFO("Entity {0} has CollideComponent", Index);
                 }
             }
         }

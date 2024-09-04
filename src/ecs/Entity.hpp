@@ -1,38 +1,19 @@
 #pragma once
 #include <bitset>
 
-// TODO: Rewrite this to properly integrate into the codebase
-
 namespace Tano
 {
     constexpr std::size_t MAX_COMPONENTS = 32;
+    static std::size_t ComponentCount = 0;
+
     using Entity = std::size_t;
     using ComponentMask = std::bitset<MAX_COMPONENTS>;
 
-    struct EntityDescriptor;
-
-    static std::uint32_t s_EntityCount = 0;
-    static std::uint32_t s_ComponentCount = 0;
-
     template <typename ComponentType>
-    inline std::uint32_t GetComponentId()
+    inline std::size_t GetComponentId()
     {
-        static std::uint32_t ComponentId = s_ComponentCount++;
+        static std::size_t ComponentId = ComponentCount++;
         return ComponentId;
-    }
-
-    template <typename Entity, typename ComponentType>
-    void AddComponentProxy(Entity& entity)
-    {
-        entity.template AddComponent<ComponentType>();
-    }
-
-    template <typename... ComponentTypes>
-    EntityDescriptor CreateEntity()
-    {
-        EntityDescriptor entity{s_EntityCount++, ComponentMask()};
-        (AddComponentProxy<EntityDescriptor, ComponentTypes>(entity), ...);
-        return entity;
     }
 
     struct EntityDescriptor

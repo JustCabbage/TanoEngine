@@ -1,4 +1,4 @@
-add_executable(TanoTest main.cpp TestGame.cpp)
+add_executable(TanoTest main.cpp TestGame.cpp TestScene.cpp)
 target_link_directories(TanoTest PRIVATE ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(TanoTest PRIVATE ${TANO_DIRECTORY} ${TANO_INCLUDE})
 target_link_libraries(TanoTest PUBLIC Tano sfml-graphics sfml-window sfml-system spdlog)

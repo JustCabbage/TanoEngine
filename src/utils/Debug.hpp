@@ -41,6 +41,9 @@ namespace Tano
 #define TANO_DEBUG_BREAK() __debugbreak()
 #else
 #include <csignal>
+#ifndef SIGTRAP
+#define SIGTRAP 5
+#endif
 #define TANO_DEBUG_BREAK() std::raise(SIGTRAP)
 #endif
 #else

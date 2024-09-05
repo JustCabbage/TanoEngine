@@ -1,5 +1,8 @@
 #include "EntityContainer.hpp"
 
+#include <algorithm>
+
+
 namespace Tano
 {
 

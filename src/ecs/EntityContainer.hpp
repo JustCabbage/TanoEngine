@@ -1,7 +1,12 @@
 #pragma once
+#include <array>
+#include <cstdint>
+#include <memory>
 #include <utils/Debug.hpp>
+#include <vector>
 
 #include "ComponentContainer.hpp"
+#include "Entity.hpp"
 
 namespace Tano
 {

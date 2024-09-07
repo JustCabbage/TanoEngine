@@ -2,10 +2,8 @@
 
 #include <algorithm>
 
-
 namespace Tano
 {
-
     void EntityContainer::AddEntity(const EntityDescriptor& Entity)
     {
         m_Entities.push_back(Entity);

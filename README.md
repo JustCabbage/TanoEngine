@@ -2,6 +2,8 @@
 
 Tano is a C++23 game engine built on top of SFML. It is currently in its early stages of development.
 
+Currently testing builds with: Clang, GCC, and MSVC (Slowly adding bugfixes for multi-compiler support when I come across them)
+
 ## Build
 
 > To build Tano, you will need to have CMake installed on your system. If you don't have CMake installed, you can download it from the official [CMake website](https://cmake.org/download/) and follow the installation instructions for your operating system.

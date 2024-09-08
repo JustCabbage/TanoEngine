@@ -50,7 +50,8 @@ jobs:
           libgl1-mesa-dev \
           libglu1-mesa-dev \
           mesa-utils \
-          libudev-dev
+          libudev-dev \
+          xorg
 
     - name: Configure CMake
       run: >

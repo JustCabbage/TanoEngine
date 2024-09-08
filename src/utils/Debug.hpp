@@ -5,6 +5,7 @@
 #include <string_view>
 
 #ifdef __clang__
+// Clang refuses to include the header file, so we include the experimental version
 #include <experimental/source_location>
 namespace std
 {

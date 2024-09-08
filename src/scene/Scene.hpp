@@ -12,6 +12,7 @@ namespace Tano
         Scene(const std::string_view SceneId) : m_SceneId(SceneId)
         {
         }
+        virtual ~Scene() = default;
 
     public:
         virtual void HandleEvent(const sf::Event& Event) = 0;

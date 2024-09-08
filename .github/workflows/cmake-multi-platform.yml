@@ -49,7 +49,8 @@ jobs:
         sudo apt-get install -y \
           libgl1-mesa-dev \
           libglu1-mesa-dev \
-          mesa-utils
+          mesa-utils \
+          libudev-dev
 
     - name: Configure CMake
       run: >

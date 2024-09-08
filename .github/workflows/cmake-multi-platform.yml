@@ -51,7 +51,9 @@ jobs:
           libglu1-mesa-dev \
           mesa-utils \
           libudev-dev \
+          libx11-dev \
           libxrandr-dev \
+          libxcursor-dev \
           xorg
 
     - name: Configure CMake

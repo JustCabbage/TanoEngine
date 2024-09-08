@@ -56,6 +56,18 @@ jobs:
           libxcursor-dev \
           xorg
 
+    - name: Install Clang 17 on Ubuntu
+      if: matrix.os == 'ubuntu-latest' && matrix.c_compiler == 'clang'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget gnupg
+        # Add the LLVM repository
+        wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+        sudo bash -c 'echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-17 main" > /etc/apt/sources.list.d/llvm.list'
+        sudo apt-get update
+        # Install Clang 17
+        sudo apt-get install -y clang-17 lld-17
+
     - name: Configure CMake
       run: >
         cmake -B ${{ steps.strings.outputs.build-output-dir }}

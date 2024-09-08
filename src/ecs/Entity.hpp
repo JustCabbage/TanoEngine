@@ -34,7 +34,7 @@ namespace Tano
         }
 
         template <typename ComponentType>
-        bool HasComponent()
+        bool HasComponent() const
         {
             return mask.test(GetComponentId<ComponentType>());
         }

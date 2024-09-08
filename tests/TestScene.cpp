@@ -17,6 +17,7 @@ namespace Tano
 
     void TestScene::Update(std::uint32_t DeltaTime)
     {
+        /*
         for (const auto [Index, Entity] : std::views::enumerate(m_EntityContainer.GetEntities()))
         {
             if (Entity.HasComponent<TransformComponent>())
@@ -35,6 +36,7 @@ namespace Tano
                 // Do something with Collide component
             }
         }
+        */
     }
 
     void TestScene::Render(sf::RenderWindow& Window)

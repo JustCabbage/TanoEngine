@@ -1,10 +1,18 @@
 #pragma once
 #include <cstddef>
 #include <iostream>
-#include <source_location>
 #include <span>
 #include <string_view>
 
+#ifdef __clang__
+#include <experimental/source_location>
+namespace std
+{
+    using source_location = std::experimental::source_location;
+}
+#else
+#include <source_location>
+#endif
 
 namespace Tano
 {

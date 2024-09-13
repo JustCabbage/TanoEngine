@@ -4,8 +4,7 @@
 #include <span>
 #include <string_view>
 
-#ifdef __clang__
-// Clang refuses to include the header file, so we include the experimental version
+#if __has_include(<experimental/source_location>)
 #include <experimental/source_location>
 namespace std
 {
